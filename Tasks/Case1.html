@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P Karthik - Personal Portfolio</title>
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b}
+header{background:#10213b;color:white;padding:20px;text-align:center}
+nav{background:#1d4ed8;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:55px 20px;text-align:center;background:#dbeafe}
+.hero h1{font-size:40px;color:#10213b}
+.hero span{color:#2563eb}
+section{max-width:950px;margin:auto;padding:30px 20px}
+h2{color:#1d4ed8}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:white;padding:20px;border-radius:10px;box-shadow:0 4px 12px #0001}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:8px 12px;margin:5px;border-radius:20px}
+form{background:white;padding:20px;border-radius:10px;display:grid;gap:12px}
+input,textarea,button{padding:12px;font:inherit;border:1px solid #cbd5e1;border-radius:6px}
+textarea{min-height:100px}
+button{background:#1d4ed8;color:white;cursor:pointer}
+footer{background:#10213b;color:white;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header><h1>My Personal Portfolio</h1><p>Student | Future Software Developer</p></header>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="hero">
+<h1>Hello, I'm <span>P Karthik</span></h1>
+<p>Computer Science and Engineering Student</p>
+<p>Welcome to my personal portfolio website!</p>
+</div>
+<section id="about">
+<h2>About Me</h2>
+<p>I am a B.Tech CSE student interested in technology, programming, and web development. I enjoy learning new skills and creating useful websites.</p>
+</section>
+<section id="skills">
+<h2>Technical Skills</h2>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">C Programming</span>
+<span class="tag">Responsive Design</span>
+<span class="tag">GitHub</span>
+</section>
+<section id="education">
+<h2>Educational Background</h2>
+<div class="cards">
+<div class="card">
+<h3>B.Tech - CSE</h3>
+<p>Dr. YSR NRI Institute of Technology</p>
+<p>Expected completion: 2030</p>
+</div>
+<div class="card">
+<h3>Intermediate - MPC</h3>
+<p>Gravity</p>
+<p>Completed: 2026</p>
+</div>
+<div class="card">
+<h3>SSC</h3>
+<p>Ideal School</p>
+<p>Completed: 2024</p>
+</div>
+</div>
+</section>
+<section id="projects">
+<h2>My Projects</h2>
+<div class="cards">
+<div class="card">
+<h3>College Website</h3>
+<p>A website displaying college information, courses, and admissions.</p>
+</div>
+<div class="card">
+<h3>Food Ordering Website</h3>
+<p>A food menu website with a working shopping cart.</p>
+</div>
+<div class="card">
+<h3>Personal Portfolio</h3>
+<p>A responsive website introducing my education and skills.</p>
+</div>
+</div>
+</section>
+<section id="contact">
+<h2>Contact Me</h2>
+<p>Send a message using this sample contact form.</p>
+<form id="contactForm">
+<input id="name" placeholder="Your Name" required>
+<input id="email" type="email" placeholder="Your Email" required>
+<textarea id="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+<p id="status"></p>
+</form>
+</section>
+<footer>© <span id="year"></span> P Karthik | Personal Portfolio</footer>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value;
+document.getElementById("status").textContent=
+"Thank you, "+name+"! This demo form works locally, but does not send messages.";
+this.reset();
+});
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P Karthik - Personal Portfolio</title>
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b}
+header{background:#10213b;color:white;padding:20px;text-align:center}
+nav{background:#1d4ed8;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:10px}
+.hero{padding:55px 20px;text-align:center;background:#dbeafe}
+.hero h1{font-size:40px;color:#10213b}
+.hero span{color:#2563eb}
+section{max-width:950px;margin:auto;padding:30px 20px}
+h2{color:#1d4ed8}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:white;padding:20px;border-radius:10px;box-shadow:0 4px 12px #0001}
+.tag{display:inline-block;background:#dbeafe;color:#1e40af;padding:8px 12px;margin:5px;border-radius:20px}
+form{background:white;padding:20px;border-radius:10px;display:grid;gap:12px}
+input,textarea,button{padding:12px;font:inherit;border:1px solid #cbd5e1;border-radius:6px}
+textarea{min-height:100px}
+button{background:#1d4ed8;color:white;cursor:pointer}
+footer{background:#10213b;color:white;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header><h1>My Personal Portfolio</h1><p>Student | Future Software Developer</p></header>
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+<div class="hero">
+<h1>Hello, I'm <span>P Karthik</span></h1>
+<p>Computer Science and Engineering Student</p>
+<p>Welcome to my personal portfolio website!</p>
+</div>
+<section id="about">
+<h2>About Me</h2>
+<p>I am a B.Tech CSE student interested in technology, programming, and web development. I enjoy learning new skills and creating useful websites.</p>
+</section>
+<section id="skills">
+<h2>Technical Skills</h2>
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">C Programming</span>
+<span class="tag">Responsive Design</span>
+<span class="tag">GitHub</span>
+</section>
+<section id="education">
+<h2>Educational Background</h2>
+<div class="cards">
+<div class="card">
+<h3>B.Tech - CSE</h3>
+<p>Dr. YSR NRI Institute of Technology</p>
+<p>Expected completion: 2030</p>
+</div>
+<div class="card">
+<h3>Intermediate - MPC</h3>
+<p>Gravity</p>
+<p>Completed: 2026</p>
+</div>
+<div class="card">
+<h3>SSC</h3>
+<p>Ideal School</p>
+<p>Completed: 2024</p>
+</div>
+</div>
+</section>
+<section id="projects">
+<h2>My Projects</h2>
+<div class="cards">
+<div class="card">
+<h3>College Website</h3>
+<p>A website displaying college information, courses, and admissions.</p>
+</div>
+<div class="card">
+<h3>Food Ordering Website</h3>
+<p>A food menu website with a working shopping cart.</p>
+</div>
+<div class="card">
+<h3>Personal Portfolio</h3>
+<p>A responsive website introducing my education and skills.</p>
+</div>
+</div>
+</section>
+<section id="contact">
+<h2>Contact Me</h2>
+<p>Send a message using this sample contact form.</p>
+<form id="contactForm">
+<input id="name" placeholder="Your Name" required>
+<input id="email" type="email" placeholder="Your Email" required>
+<textarea id="message" placeholder="Your Message" required></textarea>
+<button type="submit">Send Message</button>
+<p id="status"></p>
+</form>
+</section>
+<footer>© <span id="year"></span> P Karthik | Personal Portfolio</footer>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+const name=document.getElementById("name").value;
+document.getElementById("status").textContent=
+"Thank you, "+name+"! This demo form works locally, but does not send messages.";
+this.reset();
+});
+</script>
+</body>
+</html> give the output image
