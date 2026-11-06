@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickBite - Food Ordering</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff7ed;color:#292524}
+header{background:#7c2d12;color:white;padding:20px;text-align:center}
+nav{background:#9a3412;padding:14px;text-align:center}
+nav a{color:white;text-decoration:none;margin:12px}
+.hero{text-align:center;padding:45px 15px;background:#fed7aa}
+.hero h1{color:#7c2d12;font-size:36px}
+section{max-width:1000px;margin:auto;padding:28px 18px}
+.filters{text-align:center;margin-bottom:22px}
+button{border:0;padding:10px 14px;border-radius:6px;cursor:pointer;background:#9a3412;color:white;margin:4px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.item{background:white;border-radius:12px;padding:18px;box-shadow:0 4px 12px #0001}
+.item h3{color:#9a3412}
+.price{font-weight:bold;font-size:19px}
+.cart{background:#ffedd5;padding:20px;border-radius:12px}
+.cart-row{display:flex;justify-content:space-between;gap:12px;padding:10px;border-bottom:1px solid #fdba74}
+footer{text-align:center;background:#7c2d12;color:white;padding:20px}
+</style>
+</head>
+<body>
+<header><h1>🍔 QuickBite Food Ordering</h1><p>Fresh • Fast • Delicious</p></header>
+<nav><a href="#menu">Food Menu</a><a href="#cart">My Cart</a></nav>
+<div class="hero">
+<h1>Your Favourite Food, One Click Away!</h1>
+<p>Choose your food and add it to your cart.</p>
+</div>
+<section id="menu">
+<h2>Our Menu</h2>
+<div class="filters">
+<button onclick="showMenu('All')">All</button>
+<button onclick="showMenu('Meals')">Meals</button>
+<button onclick="showMenu('Snacks')">Snacks</button>
+<button onclick="showMenu('Drinks')">Drinks</button>
+</div>
+<div class="menu" id="menuItems"></div>
+</section>
+<section id="cart">
+<h2>Shopping Cart</h2>
+<div class="cart">
+<div id="cartItems">Your cart is empty.</div>
+<h3>Total: ₹<span id="total">0</span></h3>
+<button onclick="checkout()">Place Demo Order</button>
+<p id="status"></p>
+</div>
+</section>
+<footer>© <span id="year"></span> QuickBite Food Ordering</footer>
+<script>
+const foods=[
+{id:1,name:"Veg Burger",category:"Snacks",price:129},
+{id:2,name:"Pizza",category:"Meals",price:249},
+{id:3,name:"Veg Fried Rice",category:"Meals",price:179},
+{id:4,name:"French Fries",category:"Snacks",price:89},
+{id:5,name:"Fresh Lime Soda",category:"Drinks",price:69},
+{id:6,name:"South Indian Thali",category:"Meals",price:219}
+];
+let cart={};
+function showMenu(category){
+const container=document.getElementById("menuItems");
+container.innerHTML="";
+foods.filter(f=>category==="All"||f.category===category).forEach(f=>{
+container.innerHTML+=`
+<div class="item">
+<h3>${f.name}</h3>
+<p>Category: ${f.category}</p>
+<p class="price">₹${f.price}</p>
+<button onclick="addToCart(${f.id})">Add to Cart</button>
+</div>`;
+});
+}
+function addToCart(id){
+if(!cart[id])cart[id]={...foods.find(f=>f.id===id),qty:0};
+cart[id].qty++;
+renderCart();
+}
+function changeQty(id,amount){
+cart[id].qty+=amount;
+if(cart[id].qty<=0)delete cart[id];
+renderCart();
+}
+function renderCart(){
+const box=document.getElementById("cartItems");
+const entries=Object.values(cart);
+if(entries.length===0){box.textContent="Your cart is empty.";}
+else{
+box.innerHTML=entries.map(f=>`
+<div class="cart-row">
+<span>${f.name} × ${f.qty} — ₹${f.price*f.qty}</span>
+<span>
+<button onclick="changeQty(${f.id},-1)">−</button>
+<button onclick="changeQty(${f.id},1)">+</button>
+</span>
+</div>`).join("");
+}
+const total=entries.reduce((sum,f)=>sum+f.price*f.qty,0);
+document.getElementById("total").textContent=total;
+}
+function checkout(){
+if(Object.keys(cart).length===0){
+document.getElementById("status").textContent="Please add food to your cart first.";
+return;
+}
+const total=Object.values(cart).reduce((sum,f)=>sum+f.price*f.qty,0);
+document.getElementById("status").textContent=
+"Demo order placed! Total amount: ₹"+total+". No payment was taken.";
+cart={};
+renderCart();
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+showMenu("All");
+</script>
+</body>
+</html>
